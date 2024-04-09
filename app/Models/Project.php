@@ -12,6 +12,10 @@ class Project extends Model
 
     protected $fillable = ["name_project", "description"];
 
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
+
     public function redDescription($n_chars = 20)
     {
         return(strlen($this->description) > $n_chars) ? substr($this->description, 0, $n_chars) . "..." : $this->description;

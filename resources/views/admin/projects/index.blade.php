@@ -13,6 +13,7 @@
             <thead>
                 <tr>
                     <th>Project Name</th>
+                    <th>Type</th>
                     <th>Project Slug</th>
                     <th>Description</th>
                     <th>Buttons</th>
@@ -21,8 +22,9 @@
             <tbody>
                 @forelse($projects as $project)
                    <tr>
-                       <td>{{ $project["name_project"] }}</td>
-                       <td>{{ $project["slug"] }}</td>
+                       <td>{{ $project->name_project }}</td>
+                       <td>{{ $project->type->label }}</td>
+                       <td>{{ $project->slug }}</td>
                        <td>{{ $project->redDescription(50) }}</td>
                        <th>
                        <a href="{{ route("admin.projects.show", $project) }}" class="btn btn-info my-3"><i class="fa-solid fa-book"></i></a>
